@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+body
+{
+  background: url('./assets/fondo.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;  
+  background-color: rgba(0,0,0,0.7);
+  background-blend-mode: multiply;
+}
+
+.botones
+{
+  display: flex;
+  flex-flow: row ;
+  justify-content: space-evenly;
+}
+
+.contenedor
+{
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input
+{
+    height: 30px !important;
+    border-radius: 5px !important;
+}
+
+.login, .registro
+{
+    margin: auto;
+}

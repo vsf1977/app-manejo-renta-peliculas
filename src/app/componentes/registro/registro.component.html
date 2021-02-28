@@ -1,0 +1,22 @@
+<div class = "container">
+    <div class="row valign-wrapper contenedor">
+        <div class="col s12 m6 registro">
+            <form #f="ngForm" validate>
+                <h4 class="center white-text">Iniciar Sesion</h4>
+                <h6 class="white-text">Correo Electrónico:</h6>
+                <input type="email" class="white" [(ngModel)]="usuario.id" name="id" required>
+                <h6 class="white-text">Nombre</h6>
+                <input type="text" class="white" [(ngModel)]="usuario.nombre" name="nombre" required>
+                <h6 class="white-text">Rol</h6>
+                <input type="text" class="white" [(ngModel)]="usuario.rol" name="rol" required>
+                <h6 class="white-text">Contraseña</h6>
+                <input type="text" class="white" [(ngModel)]="usuario.password" name="password" required>
+                <div class="botones">
+                    <button class="btn waves-effect waves-light" (click) ="crearUsuario()">Registrar</button>
+                    <button class="btn waves-effect waves-light" (click) ="volverLogin()">Volver a Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
