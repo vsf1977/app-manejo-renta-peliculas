@@ -71,8 +71,9 @@ export class PeliculaComponent implements OnInit {
           if (data == null){
             alert("Se editó la pelicula exitosamente")            
           }
-          else
+          else{
             alert("Ocurrio un error al editar la pelicula")
+          }
           f.reset();
           this.actualizarInfo();
           this.edicion_borrado = false;
