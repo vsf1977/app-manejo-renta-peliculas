@@ -1,0 +1,5 @@
+el frontend se desarrolló en angular, para iniciar se descargan las dependencias con npm i y se inicia con npm start.
+
+el backend se desarrolló en visual studio 2019, solo es cuestion de abrir la solucion y correrla.
+
+Los usuarios que aparecen para hacer reservas son los clientes.
