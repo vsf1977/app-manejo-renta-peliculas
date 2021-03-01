@@ -26,7 +26,7 @@ export class ReservaComponent implements OnInit {
   ngOnInit(): void {      
     this.Datos.checkSesion("reserva");            
     this.Datos.getUsers().subscribe((data) => { 
-      this.usuarios = data.filter(x => x.rol == "cliente");
+      this.usuarios = data.filter(x => x.rol == "Cliente");
     });
     this.Datos.getMovies().subscribe((data) => {      
       this.peliculas = data;
@@ -36,20 +36,26 @@ export class ReservaComponent implements OnInit {
 
   actualizarInfo(){
     this.Datos.getReservations().subscribe((data) => {      
-      this.reservas = data;
-      data.forEach((x) =>{
-        if (parseInt(x.id_reserva) > this.ultima_reserva)
-          this.ultima_reserva = parseInt(x.id_reserva);
-      })
-      this.reserva.id_reserva = String(this.ultima_reserva + 1); 
-      this.reserva.entregado = "no";  
+      this.reservas = data; 
+      if (data !== null) {     
+        data.forEach((x) =>{
+          if (parseInt(x.id_reserva) > this.ultima_reserva)
+            this.ultima_reserva = parseInt(x.id_reserva);
+        })      
+        this.reserva.id_reserva = String(this.ultima_reserva + 1);
+      }
+      else
+        this.reserva.id_reserva = "100";   
     });
   }
 
   crearReserva(f: NgForm){
     if (!f.valid)
       alert("Falta información, revisar los datos")                
-    else                                      
+    else                   
+    {       
+      this.reserva.entregado = "no";  
+      console.log(this.reserva);      
       this.Datos.newReservation(this.reserva).subscribe((data)=>{
         if (data == null){
           alert("Se creó la reserva exitosamente")
@@ -58,7 +64,8 @@ export class ReservaComponent implements OnInit {
         }
         else
           alert("Ocurrio un error al crear la reserva")
-    }); 
+      }); 
+    }
   }
 
   editarReserva(f: NgForm){

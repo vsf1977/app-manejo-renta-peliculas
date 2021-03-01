@@ -28,11 +28,15 @@ export class PeliculaComponent implements OnInit {
   actualizarInfo(){
     this.Datos.getMovies().subscribe((data) => {      
       this.peliculas = data;
-      data.forEach((x) =>{
-        if (parseInt(x.id) > this.ultima_pelicula)
-          this.ultima_pelicula = parseInt(x.id);
-      })
-      this.pelicula.id = String(this.ultima_pelicula + 1);
+      if (data !== null) {  
+        data.forEach((x) =>{
+          if (parseInt(x.id) > this.ultima_pelicula)
+            this.ultima_pelicula = parseInt(x.id);
+        })
+        this.pelicula.id = String(this.ultima_pelicula + 1);
+      }
+      else
+        this.pelicula.id = "100";
     });
   }
 
