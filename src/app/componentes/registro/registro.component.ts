@@ -16,7 +16,7 @@ export class RegistroComponent implements OnInit {
   constructor(private Datos: DatabaseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.Datos.checkSesion();
+    this.Datos.checkSesion('registro');
   }
 
   crearUsuario(f: NgForm) {           
@@ -26,18 +26,18 @@ export class RegistroComponent implements OnInit {
       else{
         if (!f.valid)
           alert("Falta información, revisar los datos")                
-        else                  
+        else                                      
           this.Datos.newUser(this.usuario).subscribe((data)=>{
             if (data == null){
-              alert("Se creo el usuario exitosamente")
+              alert("Se creó el usuario exitosamente")
               localStorage.setItem('usuario', this.usuario.id);          
               localStorage.setItem('nombre', this.usuario.nombre); 
               localStorage.setItem('rol', this.usuario.rol);  
-              this.router.navigate(['main']);
+              this.router.navigate(['reserva']);
             }
             else
               alert("Ocurrio un error al crear el usuario")
-          });  
+        }); 
       }
     });
   }

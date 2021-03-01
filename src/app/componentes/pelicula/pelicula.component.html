@@ -1,0 +1,32 @@
+<div class = "container">
+    <app-barra-superior></app-barra-superior>   
+    <div class="row valign-wrapper contenedor">
+        <div class="col s12 m6 forma">
+            <form #f="ngForm" validate>
+                <h4 class="center white-text">Manejo peliculas</h4>
+                <h6 class="white-text" *ngIf="edicion_borrado">Id</h6>
+                <select *ngIf="edicion_borrado" name="id" (change)="selIdpelicula()" [(ngModel)]="pelicula.id" class="browser-default white" required>  
+                    <option [value]="pelicula.id" *ngFor="let pelicula of peliculas">{{pelicula.id}}</option>
+                </select>
+                <h6 class="white-text">Titulo</h6>
+                <input name="titulo" [(ngModel)]="pelicula.titulo" type="text" class="white" required>                 
+                <h6 class="white-text">Descripcion</h6>
+                <input name="descripcion" [(ngModel)]="pelicula.descripcion" type="text" class="white" required> 
+                <h6 class="white-text">Director</h6>
+                <input name="director" [(ngModel)]="pelicula.director" type="text" class="white" required> 
+                <h6 class="white-text">Costo alquiler</h6>
+                <input name="costo_alquiler" [(ngModel)]="pelicula.costo_alquiler" type="text" class="white" required> 
+                <h6 class="white-text">Cantidad</h6>
+                <input name="cantidad" [(ngModel)]="pelicula.cantidad" type="text" class="white" required> 
+                <h6 class="white-text">Actores</h6>
+                <input name="actores" [(ngModel)]="pelicula.actores" type="text" class="white" required> 
+                <div></div>
+                <div class="botones">
+                    <button class="btn waves-effect waves-light" [disabled]="btnCrear" (click)="crearPelicula(f)">Crear</button>
+                    <button class="btn waves-effect waves-light" [disabled]="btnEditar" (click)="editarPelicula(f)">Editar</button>
+                    <button class="btn waves-effect waves-light" [disabled]="btnBorrar" (click)="borrarPelicula(f)">Borrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

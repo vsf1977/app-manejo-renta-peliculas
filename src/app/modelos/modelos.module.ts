@@ -18,3 +18,25 @@ export class Usuariomodel {
   password: string
   
 }
+
+export class Peliculamodel {
+  
+  id : string
+  titulo : string
+  descripcion: string
+  director: string
+  costo_alquiler : string
+  cantidad : string
+  actores: string
+  
+}
+
+export class Reservamodel {
+  
+  id_reserva : string
+  id_pelicula  : string
+  id_usuario: string
+  fecha_reserva: string
+  entregado : string
+  
+}

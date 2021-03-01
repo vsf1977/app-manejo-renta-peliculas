@@ -1,0 +1,35 @@
+<div class = "container">
+    <app-barra-superior></app-barra-superior>   
+    <div class="row valign-wrapper contenedor">
+        <div class="col s12 m6 forma">
+            <form #f="ngForm" validate>
+                <h4 class="center white-text">Manejo reservas</h4>
+                <h6 class="white-text" *ngIf="edicion_borrado">Id</h6>
+                <select *ngIf="edicion_borrado" name="id" (change)="selIdReserva()" [(ngModel)]="reserva.id_reserva" class="browser-default white" required>  
+                    <option [value]="reserva.id_reserva" *ngFor="let reserva of reservas">{{reserva.id_reserva}}</option>
+                </select>
+                <h6 class="white-text">Cliente</h6>
+                <select name="cliente" [(ngModel)]="reserva.id_usuario" class="browser-default white" required>  
+                    <option [value]="usuario.id" *ngFor="let usuario of usuarios">{{usuario.nombre}}</option>
+                </select>
+                <h6 class="white-text">Pelicula</h6>
+                <select name="pelicula" [(ngModel)]="reserva.id_pelicula" class="browser-default white" required>  
+                    <option [value]="pelicula.id" *ngFor="let pelicula of peliculas">{{pelicula.titulo}}</option>
+                </select>                
+                <h6 class="white-text">Fecha reserva</h6>
+                <input name="fecha" [(ngModel)]="reserva.fecha_reserva" type="date" class="white" required>  
+                <h6 *ngIf="edicion_borrado" class="white-text">Entregado</h6>
+                <select *ngIf="edicion_borrado" name="entregado" [(ngModel)]="reserva.entregado" class="browser-default white" required>  
+                    <option value="no">no</option>
+                    <option value="si">si</option>
+                </select>                      
+                <div></div>
+                <div class="botones">
+                    <button class="btn waves-effect waves-light" [disabled]="btnCrear" (click)="crearReserva(f)">Crear</button>
+                    <button class="btn waves-effect waves-light" [disabled]="btnEditar" (click)="editarReserva(f)">Editar</button>
+                    <button class="btn waves-effect waves-light" [disabled]="btnBorrar"  (click)="borrarReserva(f)">Borrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

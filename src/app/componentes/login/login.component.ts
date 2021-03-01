@@ -14,9 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private Datos: DatabaseService, private router: Router) { }
 
-  ngOnInit(): void {  
-    localStorage.clear();
-    this.Datos.checkSesion();
+  ngOnInit(): void {      
+    this.Datos.checkSesion("reserva");
   }
 
   login() {

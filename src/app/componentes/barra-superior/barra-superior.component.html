@@ -1,0 +1,11 @@
+<nav class="navbar">
+    <div class="nav-wrapper">
+        <span class="brand-logo left">Videoblock</span>
+        <ul id="nav-mobile" class="right">
+            <li><a [routerLink]="['/reserva']">Reservas</a></li>
+            <li *ngIf="administrador"><a [routerLink]="['/pelicula']">Peliculas</a></li>
+            <li><a href="#" title="Cerrar Sesion" (click)="CerrarSesion()"><i class="material-icons">exit_to_app</i></a></li>
+            <span class="right nombre">{{nombre}} </span>
+        </ul>
+    </div>
+</nav>

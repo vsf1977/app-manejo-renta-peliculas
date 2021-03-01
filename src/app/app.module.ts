@@ -8,14 +8,18 @@ import { DatabaseService } from './servicios/database.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './componentes/registro/registro.component';
-import { MainComponent } from './componentes/main/main.component';
+import { BarraSuperiorComponent } from './componentes/barra-superior/barra-superior.component';
+import { ReservaComponent } from './componentes/reserva/reserva.component';
+import { PeliculaComponent } from './componentes/pelicula/pelicula.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    MainComponent
+    BarraSuperiorComponent,
+    ReservaComponent,
+    PeliculaComponent
   ],
   imports: [
     BrowserModule,
